@@ -1,0 +1,25 @@
+.serve_mark{
+	color:#555;
+	font-size:12px;
+	margin-right:1em;
+}
+.serve_p a{
+	color:#222;
+}
+.serve_p a:hover{
+	//text-decoration:underline;
+	font-style:italic;
+}
+.serve_div{
+	border:1px solid #aaa;
+	border-radius:8px;
+	width:80%;
+	margin:20px auto 0px;
+	padding:0px 20px;
+}
+.link_a{
+	color:blue;
+}
+.serve_div h3{
+	color:rgb(0,153,204);
+}

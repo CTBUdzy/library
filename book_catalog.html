@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <link href="css/newbooks.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/login_window.js"></script>
+  <script src="js/person.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/position.js"></script>
+  <script src="js/second_level_interface.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+	<div id="pageCover" class="pageCover"></div>
+	<div id="dlgTest" class="dialog">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户登录</p>
+			</div>
+			<div class="login">
+				<p><input name="" id="user" type="text" placeholder="请输入用户名"/></p>
+				<p><input name="" id="pass"  type="password" placeholder="请输入密码"/></p>
+				<p><input type="text"   id="inputCode" placeholder="验证码"/></p>
+				<div class="code_div"><div class="code" id="checkCode" onclick="createCode()" ></div></div>
+				<p><input name="submit" type="button" id="submit" value="login" /></p>
+				<p id="remember_pass"><span id="forget_pass">忘记密码?</span><span id="register_a">注册账号</span></p>
+			</div>
+		</div>
+	</div>
+
+	<!--注册界面-->
+		<div id="register">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户注册</p>
+			</div>
+			<div class="register">
+				<p><input name="" id="register_user" type="text" placeholder="请输入您的学号（10位）"/></p>
+				<p><input name="" id="register_pass"  type="password" placeholder="请设置密码（至少6位）"/></p>
+				<p><input name="" id="register_pass2"  type="password" placeholder="请确认密码"/></p>
+				<p><input name="submit" type="button" id="register_submit" value="注册" /></p>
+				<p id="register_return"><span id="return_login">返回登录</span><span id="return_index">返回首页</span></p>
+			</div>
+		</div>
+
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<a href="#" id="person_name"></a>
+			<a href="#" id="quit">退出</a>
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+		<div class="position">当前位置：<span  style="color:#000;cursor:pointer;" id="index_page">首页</span>&nbsp;&nbsp;>>&nbsp;&nbsp;<a href="#" style="color:#000;"id="position2">馆藏目录</a><span id="position3"></span></div>
+	</div>
+  <div class="page">
+	  <div class="main">
+		  <div class="type_detailed">
+			<span>全部</span><span>基础理论</span><span>化学工业</span><span>机械工业</span><span>电工电子</span><span>建筑</span><span>其他工业技术类</span><span>汽车与交通运输</span><span>农业/林业</span><span>科技史</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>计算机理论</span><span>硬件/外部设备/维修</span><span>操作系统</span><span>数据库</span><span>程序设计</span><span>网络与数据通信</span><span>图形图像/多媒体</span><span>CAD/CAM/CAE</span><span>软件工程/开发项目管理</span><span>行业软件及应用</span><span>人工智能</span><span>认证/等级考试</span><span>管理信息系统(MIS)</span><span>信息安全</span><span>计算机体系结构</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>历史</span><span>动物</span><span>植物</span><span>海洋生物</span><span>自然灾害</span><span>生态</span><span>环境保护与治理</span><span>人类</span><span>地震</span><span>星体观测</span><span>海洋</span><span>气象</span><span>河流</span><span>鸟类</span><span>昆虫</span><span>其他科普知识 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>哲学/宗教</span><span>法律</span><span>商务/经济/金融</span><span>历史</span><span>外语</span><span>汉语/辞典</span><span>医学</span><span>文学</span><span>艺术</span><span>科学技术</span><span>计算机</span><span>建筑</span><span>百科全书</span><span>综合年鉴</span><span>其他  </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>战略管理</span><span>运作管理</span><span>管理信息系统</span><span>商业史传</span><span>WTO</span><span>电子商务</span><span>工具书</span><span>商务写作</span><span>求职/面试</span><span>外文原版/影印版</span><span>管理学</span><span>领导学</span><span>组织学</span><span>决策学</span><span>团队</span><span>人力资源/行政管理</span><span>项目管理/目标管理</span><span>质量管理与控制</span><span>商业道德</span><span>经营管理</span><span>财务管理</span><span>会计</span><span>会计理论</span><span>国际会计</span><span>管理会计</span><span>薄计</span><span>预算会计</span><span>成本会计</span><span>金融会计</span><span>财务会计与财务报表</span><span>各部门会计</span><span>注册会计师（CPA）考试</span><span>会计专业技术资格考试</span><span>市场/营销</span><span>市场营销</span><span>国际市场</span><span>品牌管理</span><span>产品管理</span><span>销售</span><span>价格</span><span>谈判</span><span>广告</span><span>公共关系（PR）</span><span>客户服务</span><span>进出口</span><span>金融/投资</span><span>金融理论|<span>货币银行学</span><span>证券</span><span>投资</span><span>国际金融</span><span>外汇</span><span>基金</span><span>企业并购</span><span>股票</span><span>期货</span><span>创业企业与企业家</span><span>企业家</span><span>企业内部革新</span><span>成功秘诀</span><span>女企业家</span><span>MBA</span><span>MBA考试辅导</span><span>MBA教材</span><span>MBA实务</span><span>个人理财</span><span>投资/个人创业</span><span>税收</span><span>购房置业</span><span>股市入门/实战</span><span>保险</span><span>彩票</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>考研</span><span>外语考试</span><span>计算机考试</span><span>财税外贸保险类职称考试</span><span>建筑工程类职称考试</span><span>医药卫生类职称考试</span><span>其他类职称考试</span><span>艺术、体育类水平考试</span><span>自学考试</span><span>成人高考 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>英语词汇</span><span>英语语法</span><span>英语听力</span><span>英语口语/语音</span><span>英语阅读</span><span>英语写作</span><span>英语翻译</span><span>生活英语/即学即用英语</span><span>行业英语</span><span>英语读物</span><span>大学英语</span><span>硕士英语/博士英语</span><span>英语综合教程/学习方法</span><span>大学英语四六级</span><span>专业英语四八级</span><span>考研英语</span><span>托福(TOFEL)/托业(TOEIC)</span><span>GRE/GMAT</span><span>全国英语等级考试(PETS)</span><span>其他英语考试</span><span>日语</span><span>德语</span><span>法语</span><span>俄语</span><span>韩语</span><span>其他语种</span><span>老外学汉语</span><span>工具书</span> 
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>领袖/政治人物</span><span>哲学家</span><span>军事人物</span><span>法律</span><span>科学家</span><span>医学家</span><span>财经人物</span><span>艺术家/建筑设计</span><span>宗教人物</span><span>历史人物</span><span>教育家</span><span>音乐家</span><span>娱乐圈/影星/歌星</span><span>文学家</span><span>体育界</span><span>普通百姓</span><span>其他 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>史学理论</span><span>历史知识读物</span><span>文物/考古</span><span>地方史志</span><span>中国史</span><span>通史</span><span>古代史</span><span>近现代史</span><span>当代史</span><span>专门史</span><span>史料典籍</span><span>世界史</span><span>全球史</span><span>区域国别史</span><span>专门史</span><span>史料典籍  </span>
+		  </div>
+		  <div class="type_detailed">
+		  <span>全部</span><span>文化理论</span><span>文化评述</span><span>中国文化</span><span>中国民俗</span><span>世界文化</span><span>神秘现象</span><span>地域文化</span><span>京派文化</span><span>海派文化</span><span>天津卫</span><span>齐鲁文化</span><span>湘楚文化</span><span>吴越文化</span><span>三晋文化</span><span>三秦文化</span><span>华夏文化</span><span>巴蜀文化</span><span>草原文化</span><span>客家文化</span><span>藏文化</span><span>关东文化</span><span>其他地域文化</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>经部</span><span>总类</span><span>易类</span><span>书类</span><span>诗类</span><span>礼类</span><span>春秋</span><span>孝经类</span><span>四书</span><span>群经总义类  <span>史部</span><span>纪传类</span><span>编年类</span><span>纪事本未类</span><span>杂史类</span><span>传记类</span><span>史抄类</span><span>史评类</span><span>政书类</span><span>考工类</span><span>时令类</span><span>地理类</span><span>金石类</span><span>目录类</span><span>子部</span><span>总类</span><span>儒家类 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>社会科学总论</span><span>文化人类学</span><span>新闻传播/出版</span><span>语言文字</span>心<span>理学</span><span>图书馆学/档案学</span><span>外文原版书</span><span>社会学</span><span>社会学理论</span><span>社会学方法</span><span>社会调查报告</span><span>人口学</span><span>教育</span><span>教育理论</span><span>中国教育</span><span>世界各国教育</span> 
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>法律工具书</span><span>法学理论</span><span>法律知识读物</span><span>司法案例/司法解释</span><span>司法考试</span><span>法律文书写作</span><span>法律法规</span><span>司法制度</span><span>高等法律教材</span><span>世界各国法律 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>政治</span><span>政治理论</span><span>中国政治</span><span>世界政治</span><span>外交/国际关系</span><span>时政</span><span>领袖著作</span>党<span>政读物</span><span>公共管理</span><span>军事</span><span>军事理论</span><span>中国军事</span><span>世界军事</span><span>军事技术</span><span>中外战争纪实</span><span>兵器</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>哲学</span><span>哲学知识读物</span><span>哲学理论</span><span>马克思主义哲学</span><span>世界哲学</span><span>中国古代哲学</span><span>中国近代哲学</span><span>伦理学</span><span>逻辑学</span><span>美学</span><span>宗教</span><span>宗教知识读物</span><span>宗教理论</span><span>佛教</span><span>道教</span><span>基督教</span><span>伊斯兰教</span><span>其他宗教 </span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>各流派经济学说</span><span>经济数学</span><span>区域经济</span><span>财政税收</span><span>统计/审计</span><span>贸易政策</span><span>通货膨胀</span><span>世界及各国经济概况</span><span>保险</span><span>经济史</span><span>工具书</span><span>经济理论</span><span>经济学理论</span><span>政治经济学</span><span>微观经济学</span><span>宏观经济学</span><span>知识经济学</span><span>其他经济学理论</span><span>中国经济</span><span>中国经济概况</span><span>体制改革与市场经济</span><span>西部开发</span><span>WTO与中国</span><span>各部门经济</span><span>旅游经济/酒店管理</span><span>运输经济</span><span>房地产经济/物业管理</span><span>市政建设</span><span>工业经济</span><span>农业经济</span><span>其他各部门经济</span><span>经济法</span><span>公司法</span><span>税法</span><span>合同法</span><span>工业经济</span><span>其他法律法规</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>体育理论及教学</span><span>奥林匹克</span><span>球类 棋牌</span><span>田径</span><span>武术/太极/气功</span><span>其它运动项目</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>交通运输地图</span><span>交通运输地图册/集</span><span>历史地图</span><span>历史地图册/集</span><span>旅游地图</span><span>旅游地图册/集</span><span>生活地图</span><span>生活地图册/集</span><span>世界行政区划图</span><span>世界行政区划图册/集</span><span>中国行政区划图</span><span>中国行政区划图册/集</span><span>地图其他</span><span>地理</span><span>国家/地区概况</span>
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>文集</span><span>纪实文学</span><span>文学理论</span><span>中国古诗词</span><span>中国现当代诗歌</span><span>外国诗歌</span><span>中国古代随笔</span><span>中国现当代随笔</span><span>外国随笔</span><span>戏剧</span><span>民间文学</span> 
+		  </div>
+		  <div class="type_detailed">
+			<span>全部</span><span>艺术理论</span><span>人体艺术</span><span>设计</span><span>影视艺术</span><span>建筑艺术</span><span>舞台艺术/戏曲</span><span>收藏鉴赏</span><span>民间艺术</span><span>外文原版书</span><span>摄影</span><span>理论/教程</span><span>技法/器材</span><span>作品</span><span>美术</span><span>理论</span><span>技法/教程</span><span>画谱/画册</span><span>书法/篆刻</span><span>技法/评述</span><span>名家作品</span><span>字帖</span><span>篆刻</span><span>音乐</span><span>乐理/评述</span><span>教程/考级</span><span>演奏法/演唱法</span><span>乐谱/歌谱</span>
+		  </div>
+		  <!--提示显示-->
+		  <div id="alert_text">
+			<img src="images/book_pic/warning.png"/><p>已是最后一页，不能再往后了</p>
+		  </div>
+		  <div class="main_left"id="newbook_left">
+			<div class="h2_title" style="background:red;"><img src="images/fanhui.png"><h2 style="background:red;">图书分类</h2></div>
+			<div id="book_type_all">
+				<p>科学技术</p> 
+				<p>计算机/网络</p> 
+				<p>科普读物</p> 
+				<p>工具书</p> 
+				<p>管理 </p>
+				<p>考试</p> 
+				<p>外语</p> 
+				<p>传记</p> 
+				<p>历史</p> 
+				<p>文化</p> 
+				<p>古籍</p> 
+				<p>社会科学</p>
+				<p>法律 </p>
+				<p>政治/军事</p>
+				<p>哲学/宗教</p>
+				<p>经济 </p>
+				<p>体育 </p>
+				<p>地图/地理 </p>
+				<p>文学 </p> 
+				<p>艺术 </p>
+			</div>
+		  </div>
+		  <div class="newbook_right">
+				<div class="newbook_r_top">
+					<p id="ad_text">所有的图书都在这里啦</p>新书抢先看-<a href="#" style="color:red;text-decoration:underline;" id="new_books">新书推荐</a>
+					<div id="sea_type"style="height:40px;"><span>已选分类：</span><span id = "now_choose" style="color:#f76722;">全管图书(300W本)</span><span id="cancel_choose">取消选择</span>
+					<div id="all_search"><span>搜索：</span><input type="search" placeholder="任意词、书名、作者、ISBN"><img src="images/search2.png"></div></div>
+					<div id="other_choose">
+						<span>排序方式：</span>
+						<select>
+							<option value ="默认排序">默认排序</option>
+							<option value="按出版时间">按出版时间</option>
+							<option value ="按热度">按热度</option>
+							<option value="按类别">按类别</option>
+						</select>
+						
+						<span class="page_ch_mo">
+							<button class="page_choose" id="pic_pre_page">上一页</button>
+							<button class="page_choose" id="pic_next_page">下一页</button>
+							<span><span>第</span>&nbsp;&nbsp;<span id="pic_now_page">1</span>&nbsp;&nbsp;<span>页</span></span>
+							<span><span>共</span>&nbsp;&nbsp;<span id="pic_all_pages">8</span>&nbsp;&nbsp;<span>页</span></span>
+						</span>
+						<span class="page_ch_mo">
+							<button class="page_choose" id="list_pre_page">上一页</button>
+							<button class="page_choose" id="list_next_page">下一页</button>
+							<span><span>第</span>&nbsp;&nbsp;<span id="list_now_page">1</span>&nbsp;&nbsp;<span>页</span></span>
+							<span><span>共</span>&nbsp;&nbsp;<span id="list_all_pages"></span>&nbsp;&nbsp;<span>页</span></span>
+						</span>
+						<button class="switch_dis">图文显示</button>
+						<button class="switch_dis">列表显示</button>
+					</div>
+				</div>
+				<div class="newb_main_bg">
+					<div class="newbook_main">
+						<div class="pic_page">
+							<table class="all_newbooks" width="80%" cellspacing="15"  style="border:none;border-collapse:separate;">
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book3.jpg" title="南岸校区3楼&#10剩余量：6"><div class="details"><span class="book_name">仙桥志</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">中国人民出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+							</table>
+						</div>
+						<div class="pic_page">
+							<table  class="all_newbooks" width="70%" cellspacing="10"  style="border:none;border-collapse:separate;">
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book1.jpg" title="南岸校区2楼&#10剩余量：2"><div class="details"><span class="book_name">双赢销售</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>65</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+							</table>
+						</div>
+						<div class="pic_page">
+							<table  class="all_newbooks" width="70%" cellspacing="10"  style="border:none;border-collapse:separate;">
+								<tr>
+									<td><div><a href="reading_book.html"class="reading_book"><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"></a><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+								<tr>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+									<td><div><img src="images/book_pic/book2.jpg" title="南岸校区1楼&#10剩余量：3"><div class="details"><span class="book_name">生活之道</span><span class="author">作者：<span>某某某</span></span><br/><span class="press">北京大学出版社</span><span class="reading">月阅读量: <span>126</span></span><br/><button class="add_my_li">加入书架</button><button class="add_collect">预约</button></div></div></td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="newbook_main">
+						<div class="list_page">
+							<table class="book_list">
+								<tr>
+									<th width="15%">书名</th>
+									<th width="8%">作者</th>
+									<th width="12%">ISBN</th>
+									<th width="14%">出版社</th>
+									<th width="8%">所属分类</th>
+									<th width="10%">阅读量(次/月)</th>
+									<th width="16%">操作</th>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>5</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+							</table>
+						</div>
+						<div class="list_page">
+							<table class="book_list">
+								<tr>
+									<th width="15%">书名</th>
+									<th width="8%">作者</th>
+									<th width="12%">ISBN</th>
+									<th width="14%">出版社</th>
+									<th width="8%">所属分类</th>
+									<th width="10%">阅读量(次/月)</th>
+									<th width="16%">操作</th>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>EEEE</td>
+									<td>CCC</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>数学类</td>
+									<td>89</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+							</table>
+						</div>
+						<div class="list_page">
+							<table class="book_list">
+								<tr>
+									<th width="15%">书名</th>
+									<th width="8%">作者</th>
+									<th width="12%">ISBN</th>
+									<th width="14%">出版社</th>
+									<th width="8%">所属分类</th>
+									<th width="10%">阅读量(次/月)</th>
+									<th width="16%">操作</th>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>艺术类</td>
+									<td>38</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+							</table>
+						</div>
+						<div class="list_page">
+							<table class="book_list">
+								<tr>
+									<th width="15%">书名</th>
+									<th width="8%">作者</th>
+									<th width="12%">ISBN</th>
+									<th width="14%">出版社</th>
+									<th width="8%">所属分类</th>
+									<th width="10%">阅读量(次/月)</th>
+									<th width="16%">操作</th>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>123</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>123</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>123</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								<tr>
+									<td>AAAA</td>
+									<td>BBB</td>
+									<td>85632/15/25/98</td>
+									<td>某某某出版社</td>
+									<td>文学类</td>
+									<td>123</td>
+									<td><button class="list_add">加入书架</button><button class="list_order">预约</button></td>
+								</tr>
+								
+							</table>
+						</div>
+					</div>
+				</div>
+		  </div>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

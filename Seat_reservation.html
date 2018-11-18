@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <link href="css/Seat_reservation.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/login_window.js"></script>
+  <script src="js/person.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/position.js"></script>
+  <script src="js/second_level_interface.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+	<div id="pageCover" class="pageCover"></div>
+	<div id="dlgTest" class="dialog">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户登录</p>
+			</div>
+			<div class="login">
+				<p><input name="" id="user" type="text" placeholder="请输入用户名"/></p>
+				<p><input name="" id="pass"  type="password" placeholder="请输入密码"/></p>
+				<p><input type="text"   id="inputCode" placeholder="验证码"/></p>
+				<div class="code_div"><div class="code" id="checkCode" onclick="createCode()" ></div></div>
+				<p><input name="submit" type="button" id="submit" value="login" /></p>
+				<p id="remember_pass"><span id="forget_pass">忘记密码?</span><span id="register_a">注册账号</span></p>
+			</div>
+		</div>
+	</div>
+
+	<!--注册界面-->
+		<div id="register">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户注册</p>
+			</div>
+			<div class="register">
+				<p><input name="" id="register_user" type="text" placeholder="请输入您的学号（10位）"/></p>
+				<p><input name="" id="register_pass"  type="password" placeholder="请设置密码（至少6位）"/></p>
+				<p><input name="" id="register_pass2"  type="password" placeholder="请确认密码"/></p>
+				<p><input name="submit" type="button" id="register_submit" value="注册" /></p>
+				<p id="register_return"><span id="return_login">返回登录</span><span id="return_index">返回首页</span></p>
+			</div>
+		</div>
+
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<a href="#" id="person_name"></a>
+			<a href="#" id="quit">退出</a>
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+		<div class="position">当前位置：<span  style="color:#000;cursor:pointer;" id="index_page">首页</span>&nbsp;&nbsp;>>&nbsp;&nbsp;<a href="#" style="color:#000;"id="position2">预约座位</a>&nbsp;&nbsp;>>&nbsp;&nbsp;<span id="position3">使用帮助</span></div>
+	</div>
+  <div class="page">
+	  <div class="main">
+		<div style="width:97%;height:98%;border:1px solid #666;boder-radius:5px;margin:0px auto;">
+			<div class="main_left">
+				<div class="h2_title"><img src="images/fanhui.png"><h2>座位预约</h2></div>
+				<p>主页</p>
+				<div id="seat_child1" class="seat_child">
+					<ul class="main_left_ul seat_ul">
+						<li class="main_ul_li"><span>使用帮助</span></li>
+						<li class="main_ul_li"><span>空间介绍</span></li>
+						<li class="main_ul_li"><span>通知公告</span></li>
+					<ul>
+				</div>
+				<p>个人中心</p>
+				<div id="seat_child2" class="seat_child">
+					<ul class="main_left_ul seat_ul">
+						<li class="main_ul_li seat_login"><span>预约记录</span></li>
+						<li class="main_ul_li seat_login"><span>信用积分</span></li>
+						<li class="main_ul_li seat_login"><span>个人信息</span></li>
+					<ul>
+				</div>
+				<p>资源预约</p>
+				<div id="seat_child3" class="seat_child">
+					<ul class="main_left_ul seat_ul">
+						<li class="main_ul_li"><span>单人研修间</span></li>
+						<li class="main_ul_li"><span>六人研讨间</span></li>
+						<li class="main_ul_li"><span>十人研讨间</span></li>
+					<ul>
+				</div>
+				<hr/>
+			</div>
+			<div class="main_right">
+				<div class ="h3_title"><h3>使用帮助</h3></div>
+				<div class="con_detailed">
+					<h4>一、开放预约时间</h4>
+						周一至周日：8:00—22:00，法定节假日及寒暑假另行规定。<br/>读者可提前一天预约座位，即第T+0天0点起预约第T+1天全天的座位。
+					<h4>二、可预约人员</h4>
+					    持有本校校园卡，能正常借阅图书的师生读者。
+					<h4>三、座位预约及使用方式</h4>
+					1．预约系统帐号及密码<br/>
+					用户名为读者学工号。<br/>密码为图书馆密码。读者可于图书馆网页左方“快速服务”—“读者借阅查询及续借 ”中修改自己的图书馆密码。<br/>
+					2.座位预约方式<br/>
+					（1）扫描座位隔间门上的“二维码”，可快速预约当前座位。<br/>
+					（2）微信端预约<br/>
+					<img src="images/Seat_reservation/1.png"><br/>
+					（3）网页端预约<br/>
+					<img src="images/Seat_reservation/2.png"><br/>
+					（4）通过图书馆现场“平板电脑预约终端”进入平板预约端预约。
+					3.座位使用流程<br/>
+					以下扫码指扫描座位隔间门上的二维码；刷卡指在“现场平板电脑”上刷校园一卡通。<br/>
+					<img src="images/Seat_reservation/3.png"><br/>
+					4.离馆流程
+					<img src="images/Seat_reservation/4.png"><br/>
+					<h4>四．违约处罚规则</h4>
+					1.发生以下三种情况读者将被记录违约一次：
+					<br/>预约了座位但未按时扫描二维码或刷卡签到；
+					<br/>预约并使用了座位，安全离馆时未扫描二维码或刷卡签离；
+					<br/>暂时离馆后未按时返回扫描二维码或刷卡签到。
+					2.系统记录三次违约的读者将被停止预约权限7天，7天后读者的信用记录可恢复并再次预约。
+					 <h4>五.管理规定</h4>
+					1．个人研修座位为治学、研究之用，严禁从事任何与之无关的其他活动。
+					<br/>2．对于超过预约时间规定时限未签到，且未取消预约申请的违约情况，图书馆将做违约记录，并作限制下次预约资格等违约处理。
+					<br/>3．个人研修座位严禁以任何物品占座。
+					<br/>4．图书馆图书请办理外借手续后再带入个人研修座位，若未办理外借手续，管理员有权将图书收回上架。
+					<br/>5．使用期间，请妥善保管个人物品，如有遗失责任自负。
+					<br/>6．请自觉爱护室内的一切设施设备，如有损坏，须照价赔偿。
+					<br/>7．馆內其他设备、家具请勿自行移至个人研修隔间內。
+					<br/>8．图书馆内禁止吸烟，禁止携带各类食品、饮料，请保持环境卫生，离开房间时请带走个人物品和垃圾，馆内图书带出座位。
+					<br/>9．图书馆为公共场所，言行举止要文明得体，不得在室内吵闹、喧哗，以免影响其他读者。
+					<br/>10．使用中如有问题，请与工作人员联系，请勿擅自处理。
+					<br/>11．对不文明读者，如未按照图书馆相关规定使用个人研修座位，图书馆视情节轻重有权做出处理，情节特别严重的交有关部门处理。
+					<br/>12．使用期间，图书馆有权对个人研修座位的使用情况进行监督管理，使用者不得拒绝。
+				</div>
+				<div class="con_detailed">
+					<h3 style="text-align:center;color:#ff3399;">图书馆研讨间预约使用说明</h3>
+					<p><b>一、开放预约时间</b></p>
+					<p>周一至周日：8:00—22:00，法定节假日及寒暑假另行规定。</p>
+					<p>读者可提前一周（7天）预约研讨间，即第T+0天0点起可预约第T+7天全天的研讨间。试运行期间，每次可预约时长不超过4小时。</p>
+					<p><b>二、可预约人员</b></p>
+					<p>持有本校校园卡，能正常借阅图书的师生读者。</p>
+					<p>l十人间仅供教职工预约。</p>
+					<p>l六人间可供所有师生预约。</p>
+					<p><b>三、研讨间预约及使用方式</b></p>
+					<p>1．预约系统帐号及密码</p>
+					<p>用户名为读者学工号。</p>
+					<p>密码为图书馆密码。图书馆密码初始默认为“123456”，读者可于图书馆网页左方“快速服务”—“读者借阅查询及续借 ”中修改自己的图书馆密码。</p>
+					<p>2.预约方式</p>
+					<p>（1）微信端预约</p>
+					<p>重庆工商大学图书馆微信公众号——常用服务——座位预约——空间——预约空间</p>
+					<p>（2）网页端预约</p>		  
+					<p>图书馆网站——快速服务——座位预约系统——空间</p>
+					<p>注意：预约十人间需填报至少5人学工号；预约六人间需填报至少3人学工号。</p>
+					<p>3.研讨间使用流程</p>
+					<p>从预约生效时间起30分钟内，预约时填报的人员分别刷卡签到（开门），预约时间满系统自动释放研讨间。</p>
+					<p>超过预约生效时间30分钟，预约人员均未刷卡签到（开门），系统记主预约人违约一次，并自动释放研讨间。</p>
+					<p>四．违约处罚规则</p>
+					<p>1.预约生效时间30分钟内，预约时填报的人员均需在预约的研讨间门禁上刷卡，以示签到。主预约人有责任提醒并监督预约时填报的人员刷卡签到，若有任何一人未签到，记主预约人违约一次。</p>
+					<p>2.系统记录三次违约的读者将被停止预约权限7天，7天后读者的信用记录可恢复并再次预约。</p>
+
+				</div>
+				<div class="con_detailed">
+					<div class="seat_notice_choose">
+						<ul>
+							<li>综合</li>
+							<li>通知</li>
+							<li>公告</li>
+							<li>活动</li>
+						</ul>
+					</div>
+					<div class="seat_notice">
+						<ul>
+							<li><span>【通知】</span>通知通知通知1......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知知通知2......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>关于五一节放假通知公告......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知3......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+						</ul>
+					</div>
+					<div class="seat_notice">
+						<ul>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+							<li><span>【通知】</span>通知通知通知通知通知通知通知通知通知......<span>2018-5-13</span></li>
+						</ul>
+					</div>
+					<div class="seat_notice">
+						<ul>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+							<li><span>【公告】</span>公告公告公告公告公告公告公告公告......<span>2018-5-13</span></li>
+						</ul>
+					</div>
+					<div class="seat_notice">
+						<ul>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+							<li><span>【活动】</span>活动活动活动活动活动活动活动活动活动......<span>2018-5-13</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="con_detailed">
+					<div class="book_operation">
+						<!--
+						<span>时间：</span>
+						<select class="room_time">
+							<option value ="近3个月">近3个月</option>
+							<option value ="近半年">近半年</option>
+							<option value="近一年">近一年</option>
+						</select>	-->
+						&nbsp;&nbsp;<span>空间类型：</span>
+						<select class="room_type">
+							<option value ="全部">全部</option>
+							<option value ="单人研修间">单人研修间</option>
+							<option value ="6人研讨间">6人研讨间</option>
+							<option value="10人研讨间">10人研讨间</option>
+						</select>	
+						&nbsp;&nbsp;&nbsp;&nbsp;<span>状态：</span>
+						<select class="room_state">
+							<option value ="全部">全部</option>
+							<option value ="已结束">已结束</option>
+							<option value ="正在使用">正在使用</option>
+							<option value="待使用">待使用</option>
+							<option value="已违约">已违约</option>
+						</select>
+					</div>
+					<table width="100%;" class="seat_history">
+						<tr>
+							<th width="15%">位置</th><th width="16%">空间类型</th><th width="15%">日期</th><th width="16%">时间</th><th width="10%">座位号</th><th width="18%">提交时间</th><th width="15%">状态</th>
+						</tr>
+						<tr>
+							<td>南5楼</td><td>单人研修间</td><td>2018/05/21</td><td>13:00-18:30</td><td>5F217</td><td>2018-5-20</td><td>待使用</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>单人研修间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6F217</td><td>2018-5-20</td><td>正在使用</td>
+						</tr>
+						<tr>
+							<td>南5楼</td><td>单人研修间</td><td>2018/05/21</td><td>13:00-18:30</td><td>5F217</td><td>2018-5-20</td><td>已违约</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>单人研修间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6F217</td><td>2018-5-20</td><td>已结束</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>6人研讨间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6-4</td><td>2018-5-20</td><td>已结束</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>10人研讨间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6-3</td><td>2018-5-20</td><td>已违约</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>6人研讨间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6-2</td><td>2018-5-20</td><td>已结束</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>10人研讨间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6-1</td><td>2018-5-20</td><td>已结束</td>
+						</tr>
+						<tr>
+							<td>南6楼</td><td>6人研讨间</td><td>2018/05/21</td><td>13:00-18:30</td><td>6-5</td><td>2018-5-20</td><td>已结束</td>
+						</tr>
+					</table>
+				</div>
+				<div class="con_detailed">
+					<div class="book_operation">
+						<span style="color:#fff;">个人预约系统信用记录</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>总积分：</span><span id="total_points">300</span><span>分</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>剩余积分：</span><span id="now_points">200</span><span>分</span>
+					</div>
+					<table width="100%;" class="seat_points">
+						<tr>
+							<th width="15%">违约描述</th><th width="10%">积分状态</th><th width="20%">违约时间</th><th width="16%">预约地址</th><th width="10%">座位号</th><th width="10%">处理状态</th><th width="20%">处罚</th>
+						</tr>
+						<tr>
+							<td>预约不来</td><td>-100</td><td>2018/5/12-12:20</td><td>南6楼</td><td>6F023</td><td>有效</td><td>不处罚</td>
+						</tr>
+						<tr>
+							<td>预约不来</td><td>-100</td><td>2018/5/08-15:45</td><td>南5楼</td><td>5F124</td><td>管理员取消</td><td>不处罚</td>
+						</tr>
+						<tr>
+							<td>离开未刷卡</td><td>+200</td><td>2018/5/01-18:01</td><td>南5楼</td><td>5F163</td><td>有效</td><td><span style="color:red;">禁止预约</span>:2018/4/17至2018/2-24</td>
+						</tr>
+						<tr>
+							<td>预约不来</td><td>-100</td><td>2018/4/12-08:32</td><td>南5楼</td><td>5F023</td><td>管理员取消</td><td>不处罚</td>
+						</tr>
+						<tr>
+							<td>离开未刷卡</td><td>-100</td><td>2018/3/05-09:32</td><td>南5楼</td><td>5F196</td><td>有效</td><td>不处罚</td>
+						</tr>
+						<tr>
+							<td>离开未刷卡</td><td>-100</td><td>2018/2/01-16:45</td><td>南5楼</td><td>5F120</td><td>有效</td><td>不处罚</td>
+						</tr>
+					</table>
+				</div>
+				<div class="con_detailed">
+					<div class="person_info_name">
+						<ul>
+							<li><p>姓名：</p></li>
+							<li><p>学院：</p></li>
+							<li><p>专业：</p></li>
+							<li><p>学号：</p></li>
+							<li><p>联系电话：</p></li>
+							<li><p>邮箱：</p></li>
+						</ul>
+					</div>
+					<div class="person_info_text">
+						<ul>
+							<li><p>邓占勇</p></li>
+							<li><p>计算机科学与信息工程学院</p></li>
+							<li><p>物联网工程</p></li>
+							<li><p>2015137123</p></li>
+							<li><p><input id="person_tell" value="" disabled/></p></li>
+							<li><p><input id="person_email"value="" disabled/></p></li>
+						</ul>
+					</div>
+					<div class="person_btn_div">
+						<button id="chenge_person">修改</button>
+						<button id="save_person">保存</button>
+					</div>
+					<div class="saveper_success"><p>保存成功</p></div>
+				</div>
+				<div class="con_detailed">
+					<div id="floor_choose"><div>南5楼</div><div>南6楼</div></div>
+					<div class="floor"><img src="images/Seat_reservation/5L.png"><br/></div>
+					<div class="floor"><img src="images/Seat_reservation/6L.png"><br/></div>
+				</div>
+				<div class="con_detailed">
+				</div>
+				<div class="con_detailed">
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

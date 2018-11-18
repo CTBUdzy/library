@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <link href="css/service item.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/login_window.js"></script>
+  <script src="js/person.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/position.js"></script>
+  <script src="js/second_level_interface.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+	<div id="pageCover" class="pageCover"></div>
+	<div id="dlgTest" class="dialog">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户登录</p>
+			</div>
+			<div class="login">
+				<p><input name="" id="user" type="text" placeholder="请输入用户名"/></p>
+				<p><input name="" id="pass"  type="password" placeholder="请输入密码"/></p>
+				<p><input type="text"   id="inputCode" placeholder="验证码"/></p>
+				<div class="code_div"><div class="code" id="checkCode" onclick="createCode()" ></div></div>
+				<p><input name="submit" type="button" id="submit" value="login" /></p>
+				<p id="remember_pass"><span id="forget_pass">忘记密码?</span><span id="register_a">注册账号</span></p>
+			</div>
+		</div>
+	</div>
+
+	<!--注册界面-->
+		<div id="register">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户注册</p>
+			</div>
+			<div class="register">
+				<p><input name="" id="register_user" type="text" placeholder="请输入您的学号（10位）"/></p>
+				<p><input name="" id="register_pass"  type="password" placeholder="请设置密码（至少6位）"/></p>
+				<p><input name="" id="register_pass2"  type="password" placeholder="请确认密码"/></p>
+				<p><input name="submit" type="button" id="register_submit" value="注册" /></p>
+				<p id="register_return"><span id="return_login">返回登录</span><span id="return_index">返回首页</span></p>
+			</div>
+		</div>
+
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<a href="#" id="person_name"></a>
+			<a href="#" id="quit">退出</a>
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+		<div class="position">当前位置：<span  style="color:#000;cursor:pointer;" id="index_page">首页</span>&nbsp;&nbsp;>>&nbsp;&nbsp;<a href="#" style="color:#000;"id="position2">服务项目</a>&nbsp;&nbsp;>>&nbsp;&nbsp;<span id="position3">嵌入式服务</span></div>
+	</div>
+  <div class="page">
+	  <div class="main">
+		<div style="width:97%;height:98%;border:1px solid #666;boder-radius:5px;margin:0px auto;">
+			<div class="main_left">
+				<div class="h2_title"><img src="images/fanhui.png"><h2>关于本管</h2></div>
+				<ul class="main_left_ul">
+					<li class="main_ul_li"><span>嵌入式服务</span></li>
+					<li class="main_ul_li"><span>收录检索</span></li>
+					<li class="main_ul_li"><span>文献传递</span></li>
+					<li class="main_ul_li"><span>视听阅览室</span></li>
+					<li class="main_ul_li"><span>翠湖博士论坛</span></li>
+					<li class="main_ul_li"><span>复制比检测</span></li>
+					<li class="main_ul_li"><span>重庆市周刊</span></li>
+
+				</ul>
+				<hr/>
+			</div>
+			<div class="main_right">
+				<div class ="h3_title"><h3>嵌入式服务</h3></div>
+				<div class="con_detailed" style="display:block;">
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;图书馆嵌入式科研团队开展学科服务&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;数据库及信息素养专题讲座服务  &nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;图书馆学科服务联系卡&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;图书馆嵌入式科研团队开展学科服务&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;图书馆嵌入式科研团队开展学科服务&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[嵌入式服务]<a href="#">&nbsp;图书馆嵌入式科研团队开展学科服务&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+				</div>
+				<div class="con_detailed">
+					<div class="serve_div">
+						<h3>收录检索</h3>
+						<p>欢迎您使用查收服务!请准确填写个人信息和所查文献信息，以便我们快速准确地为您提供服务。若有疑问请电话联系图书馆信息部进行咨询：62763680。委托单填写好后，请发送至电子邮箱<a href="#" class="link_a">：xxb@ctbu.edu.cn</a>。</p>
+						<p>检索报告收费标准：10元/篇/人</p>
+						<p>注意：本检索报告受重庆工商大学科研处委托，仅供校内使用。</p>
+					</div>
+				</div>
+				<div class="con_detailed">
+					<div class="serve_div">
+						<h3>重庆工商大学图书馆文献传递申请单</h3>
+						<p>欢迎使用文献传递服务！请填写《重庆工商大学图书馆文献传递申请单》。发送到<a href="#" class="link_a">：xxb@ctbu.edu.cn</a>(咨询电话：62769114-603) </p>
+						<p>检索报告收费标准：10元/篇/人</p>
+						<p>注意：本检索报告受重庆工商大学科研处委托，仅供校内使用。</p>
+					</div>
+				</div>
+				<div class="con_detailed">
+					<div class="serve_div">
+						<h3>重庆工商大学图书馆视听阅览室使用管理办法</h3>
+						<p>为了合理、有效、规范地利用图书馆视听阅览室，保持卫生整洁和设备设施的安全，特制定本办法。</p>
+						<p>1.视听阅览室由图书馆技术部统一安排，未经申请批准，任何部门和个人不得擅自使用。</p>
+						<p>2.视听阅览室主要用于图书馆日常播放提高学生综合素养水平的各种音视频材料；图书馆各部室、校内各单位如因教学、科研工作需要，经过申请批准，也均可使用。</p>
+
+						<p>3.   日常素质提升音视频播放由技术部和图书馆志愿者协会具体负责，每月由志愿者协会提供放映清单报图书馆审定并由技术部负责实施；图书馆各部室需使用时，由申请老师提出申请、部室负责人签字同意；校内各单位需使用时，由申请老师提出申请、所在单位领导签字同意，必要时还需经过学校相关主管部门审核通过。</p>
+
+						<p>4.   凡在视听阅览室播放的内容，或举办的活动，必须是健康的、积极向上的、符合社会主义主流价值观要求的，申请老师全程负有监督责任。</p>
+
+						<p>5.   视听阅览室的所有设备设施均有专人管理，各部室、各校内单位使用时，申请老师全程负有监督责任，如因使用不当、不听从管理造成设备、设施的损坏或遗失等，图书馆将严格追究相关人员责任。</p>
+
+
+						<p>6.使用过程中需注意维护室内环境的干净整洁，用后及时清理带走任何垃圾，如果移动了桌椅需及时恢复原状。</p>
+
+						<p>7开放时间周一至周五上午8点30到12点00 下午2点30到5点30 晚上7点到9点。视听阅览室管理老师一般只在活动开始前半小时内开门。如需提前彩排最多提前一个小时开门。</p>
+
+						<p>8.本办法自公布之日起执行，由图书馆负责解释。</p>
+					</div>
+				</div>
+				<div class="con_detailed">
+					<div class="serve_div">
+						<h3>重庆工商大学图书馆博士论坛室使用管理办法</h3>
+						为了合理、有效、规范地利用图书馆博士论坛室，保持卫生整洁和设备设施的安全，特制定本办法。 </p>
+						<p>1.博士论坛室由图书馆信息部统一安排，未经申请批准，任何部门和个人不得擅自使用。 </p>
+						<p>2.博士论坛室主要用于图书馆翠湖文化的各种活动和校内博士的小型研讨，图书馆各部室、校内各单位如因科研工作需要，周一至周四经过申请批准，正常工作时间内也可使用，周五全天为翠湖文化活动的常规安排时间，原则上不对外开放。</p>
+
+						<p>3.   图书馆各部室需使用时，由申请老师提出申请、部室负责人签字同意；校内各单位需使用时，由申请老师提出申请、所在单位领导签字同意，必要时还需经过学校相关主管部门审核通过。</p>
+
+						<p>4.   凡在博士论坛室举办的活动，必须是健康的、积极向上的、符合社会主义主流价值观要求的，申请老师全程负有监督责任；活动过程中，组织人员和预约人员要有正确的意识形态，否则图书馆将追责相关人员。</p>
+
+						<p>5.   博士论坛室的所有设备设施均有专人管理，各部室、各校内单位使用时，申请老师全程负有监督责任，如因使用不当、不服从管理造成设备、设施的损坏或遗失等，图书馆将追究相关人员责任。</p>
+
+						<p>6、使用部门自备茶叶，原则上不得在里面用餐。</p>
+
+						<p>7.使用过程中需注意维护室内环境的干净整洁，用后及时清理带走任何垃圾，如果移动了桌椅需及时恢复原状。</p>
+
+						<p>8.本办法自公布之日起执行，由图书馆负责解释。</p>
+					</div>
+				</div>
+				<div class="con_detailed">
+					复制比检测内容
+				</div>
+				<div class="con_detailed">
+					<p class="serve_p"><span class="serve_mark">>></span>[重庆事情周刊]<a href="#">&nbsp;第十四期（2015.12.12 - 2015.12.18）&nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+					<p class="serve_p"><span class="serve_mark">>></span>[重庆事情周刊]<a href="#">&nbsp;第四期(2015.10.03 - 2015.10.09)  &nbsp;&nbsp;&nbsp;<span>点击查看</span></a></p>
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

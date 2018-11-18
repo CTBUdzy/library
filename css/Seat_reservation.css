@@ -1,0 +1,102 @@
+.seat_notice_choose{
+	background:#ccc;
+	height:34px;
+	width:100%;
+	margin:10px 0px 0px 0px;
+	border-top:4px solid #666;
+}
+.seat_notice_choose ul li{
+	float:left;
+	padding:3px 2em;
+	//background:#666;
+	line-height:28px;
+	cursor:pointer;
+	border-top:4px solid rgba(102,102,102,1);
+	margin-top:-4px;
+}
+
+.seat_notice{
+	width:100%;
+	background:rgba(255,255,255,0.8);
+	padding:8px 0px;
+	height:500px;
+	display:none;
+}
+.seat_notice ul{
+	//border:1px solid #666;
+	//border-bottom:none;
+	border-radius:5px;
+	clear:both;
+	margin:4px;
+}
+.seat_notice ul li{
+	clear:both;
+	line-height:2em;
+	border-bottom:1px dotted #aaa;
+	width:95%;
+	margin:0px auto;
+	cursor:pointer;
+	border-left:3px solid rgba(243,250,254,1);
+}
+.seat_notice ul li span{
+	color:#555;
+}
+.seat_notice ul li span:nth-child(2){
+	float:right;
+}
+.person_info_name,.person_info_text{
+	//border:1px solid red;
+	float:left;
+	margin-top:30px;
+	font-size:20px;
+}
+.person_info_name{
+	width:40%;
+}
+.person_info_text{
+	width:50%;
+}
+.person_info_name p{
+	text-align:right;
+}
+.person_info_text p{
+	text-indent:1em;
+}
+.person_info_text input{
+	font-size:16px;
+	border:none;	
+}
+.person_btn_div{
+	float:left;
+	//border:1px solid red;
+	width:100%;
+	text-align:center;
+	margin-top:30px;
+}
+.person_btn_div button{
+	margin:20px;
+	border-radius:5px;
+	font-size:20px;
+	background:rgb(38,168,212);
+	border:none;
+	outline:none;
+	cursor:pointer;
+}
+.saveper_success{
+	width:100%;
+	float:left;
+	text-align:center;
+	display:none;
+}
+.saveper_success p{
+	font-size:28px;
+	color:#00cc00;
+	text-indent:none;
+	margin-left:-2em;
+}
+#person_tell{
+	width:150px;
+}
+#person_email{
+	width:200px;
+}

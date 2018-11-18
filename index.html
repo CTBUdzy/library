@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/login_window.js"></script>
+  <script src="js/person.js"></script>
+  <script src="js/index_page.js"></script>
+  <script src="js/login.js"></script>
+  <script type="text/javascript"></script>
+<style>
+	.sc_off{
+		border:1px solid #fff;
+		background:rgb(42,71,108);
+	}
+	.tishi{
+		float:left;
+	}
+</style>
+ </head>
+ <body>
+	<!--登录界面-->
+	<div id="pageCover" class="pageCover"></div>
+		<div id="dlgTest" class="dialog">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户登录</p>
+			</div>
+			<div class="login">
+				<p><input name="" id="user" type="text" placeholder="请输入用户名"/></p>
+				<p><input name="" id="pass"  type="password" placeholder="请输入密码"/></p>
+				<p><input type="text"   id="inputCode" placeholder="验证码"/></p>
+				<div class="code_div"><div class="code" id="checkCode" onclick="createCode()" ></div></div>
+				<p><input name="submit" type="button" id="submit" value="login" /></p>
+				<p id="remember_pass"><span id="forget_pass">忘记密码?</span><span id="register_a">注册账号</span></p>
+			</div>
+		</div>
+	</div>
+
+		<!--注册界面-->
+		<div id="register">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户注册</p>
+			</div>
+			<div class="register">
+				<p><input name="" id="register_user" type="text" placeholder="请输入您的学号（10位）"/></p>
+				<p><input name="" id="register_pass"  type="password" placeholder="请设置密码（至少6位）"/></p>
+				<p><input name="" id="register_pass2"  type="password" placeholder="请确认密码"/></p>
+				<p><input name="submit" type="button" id="register_submit" value="注册" /></p>
+				<p id="register_return"><span id="return_login">返回登录</span><span id="return_index">返回首页</span></p>
+			</div>
+		</div>
+
+	<!--网页头部-->
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<a href="#" id="person_name"></a>
+			<a href="#" id="quit">退出</a>
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="rgb(170,172,204)"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+		<div class="position">当前位置：<a href="#" style="color:#000;">首页</a><a href="#" style="color:#000;"id="position2"></a><span id="position3"></span></div>
+	</div>
+	<!--网页主体-->
+  <div class="page">
+	  <div class="main">
+			<div class="main_child">
+				<div id="search_module" class="all_module">
+					<div id="search_text"><span style="font-size:50px;font-weight:600;">Search</span></div>
+					<div class="search_choose">
+						<div>
+							<ul>
+								<li>馆藏目录</li>
+								<li>中外文学术</li>
+								<li>期刊导航</li>
+								<li>E搜索</li>
+							</ul>
+						</div>
+					</div>
+					<div class="search_box">
+						<input type="text"  placeholder="输入搜索" id = "search_con">
+						<div class="search_img"><img src="images/search.png" style="width:100%;height:100%;"></div>
+					</div>
+					<div id="use_explain">
+						<p>将鼠标移入，选择搜索分类</p>
+					</div>
+					<div class="explain">
+						<input type="radio" name="book" value="任意词" checked><span>任意词</span>
+						<input type="radio" name="book" value="书名"><span>书名</span>
+						<input type="radio"  name="book"value="责任者"><span>责任者</span>
+						<input type="radio"  name="book"value="ISBN"><span>ISBN</span>
+					</div>
+					<div class="explain">
+						<p>轻松发现重庆工商大学馆藏资源<br/>包括期刊、会议等各类资源文章级检索、全文获取和馆藏书目级检索</p>
+					</div>
+					<div class="explain">
+						<p>轻松获取本馆期刊资源<br/>可以查阅图书馆购买的全文电子期刊和纸本期刊以及部分“开放获取（Open Access）”期刊</p>
+					</div>
+					<div class="explain">
+						<p>轻松发现全国高校图书馆的百万种图书、千万篇外文期刊论文<br/>百万篇中外文学位论文，以及古籍、拓片等特色资源</p>
+					</div>
+				</div>
+				<div id="act_module" class="all_module">
+					<a href="#"><img src="images/act_pic/act1.png" id="slide1" class="slide"></a>
+					<a href="#"><img src="images/act_pic/act2.png" id="slide2" class="slide"></a>
+					<a href="#"><img src="images/act_pic/act3.png" id="slide3" class="slide"></a>
+					<a href="#"><img src="images/act_pic/act4.png" id="slide4" class="slide"></a>
+					<a href="#"><img src="images/act_pic/act5.png" id="slide5" class="slide"></a>
+					<a href="#"><img src="images/act_pic/act6.png" id="slide6" class="slide"></a>
+					<!--滚动图片选择显示按钮-->
+					<div id="pic_button1" class="pic_button"></div>
+					<div id="pic_button2" class="pic_button"></div>
+					<div id="pic_button3" class="pic_button"></div>
+					<div id="pic_button4" class="pic_button"></div>
+					<div id="pic_button5" class="pic_button"></div>
+					<div id="pic_button6" class="pic_button"></div>
+					
+					<div id="act_module_text">
+						<table>
+							<tr>
+								<td><span class="book_catalog">馆藏目录</span></td>
+								<td><span class="service_item">服务项目</span></td>
+								<td><span class="Seat_reservation">座位预约</span></td>
+								<td><span>学术论文</span></td>
+								<td><span class="Bibliography">文献数据库</span></td>
+							</tr>
+							<tr>
+								<td><span>翠湖文化</span></td>
+								<td><span>数字资源</span></td>
+								<td><span class="contact_us">联系我们</span></td>
+								<td><a href="Feedback mailbox.html" target="_block">反馈问题</a></td>
+								<td><a href="#"id="Administrator">网站管理员</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div id="other1_module" class="all_module">
+					<div style="height:100%;width:70%;float:left;" id="weixin">
+						<img src="images/code/weixin.png">
+						<img src="images/code/weixin.png">
+					</div>
+					<div style="height:100%;width:30%;float:left;font-size:18px;color:yellow;">
+						<div style="float:left;"><br/>关<br/>注<br/>微<br/>博<br/>微<br/>信</div>
+						<div style="float:left;padding-left:0.5em;"><br/><br/><br/><br/><br/><br/>掌<br/>握<br/>最<br/>新<br/>动<br/>态</div>
+					</div>
+				</div>
+				<div id="other2_module" class="all_module shadow_over">
+					<a href="#"><p>不知道</p><p>开放时间？</p><p>如何借还书？</p><p>这里告诉你...</p></a>
+				</div>
+				<div id="other3_module" class="all_module shadow_over">
+					<a href="#"><p>这是</p><p>属于你自己</p><p>的</p><p>小书馆</p></a>
+				</div>
+				<div id="other2_shadow" class="all_module shadow">
+					<img src="images/main/2.png" style="width:40%;margin:10px 0px;"><br/><span style="font-size:25px;">关于本管</span>
+				</div>
+				<div id="other3_shadow" class="all_module shadow">
+					<img src="images/main/1.png" style="width:40%;margin:10px 0px;"><br/><span style="font-size:25px;">我的图书馆</span>
+				</div>
+				<div id="other4_module" class="all_module">
+					<div><a href="#" id="new_books"><h3>新<br/>书<br/>推<br/>荐</h3></a></div>
+				</div>
+				<div id="other5_module" class="all_module">
+					<div id="book_run_div">
+						<div class="runbooks"style="left:10px;"><a href="#"class="reading_book2"><img src="images/book_pic/book1.jpg"><br/>双赢销售</a></div>
+						<div class="runbooks"style="left:130px;"><a href="#"class="reading_book"><img src="images/book_pic/book2.jpg"><br/>生活之道</a></div>
+						<div class="runbooks"style="left:250px;"><a href="#"><img src="images/book_pic/book3.jpg"><br/>仙桥志</a></div>
+						<div class="runbooks"style="left:370px;"><a href="#"><img src="images/book_pic/book4.jpg"><br/>教朋友做生意</a></div>
+						<div class="runbooks"style="left:490px;"><a href="#"><img src="images/book_pic/book5.jpg"><br/>目送</a></div>
+						<div class="runbooks"style="left:610px;"><a href="#"><img src="images/book_pic/book6.jpg"><br/>安心下来</a></div>
+						<div class="runbooks"style="left:730px;"><a href="#"><img src="images/book_pic/book7.jpg"><br/>变革中国</a></div>
+						<div class="runbooks"style="left:850px;"><a href="#"><img src="images/book_pic/book8.jpg"><br/>拯救</a></div>
+					</div>
+				</div>
+				<div id="other6_module" class="all_module">
+
+				</div>
+				<div id="news_module" class="all_module">
+					<div id="news_module_name">新闻公告</div>
+					<div id="news_category"><ul><li>通知公告</li><li>工作动态</li><li>资源动态</li><li>最新活动</li></ul></div>
+					<div class="news_content" id="news_content1">
+						<ul>
+							<li><a href="#">关于图书馆的重要通知属于这个模块</a><span class="news_time">2018/05/08</span></li>
+							<li><a href="#">关于五一节图书馆闭馆通知</a><span class="news_time">2018/05/01</span></li>
+							<li><a href="#">图书馆研修间预约系统升级，暂停使用通知</a><span class="news_time">2018/05/06</span></li>
+							<li><a href="#">2018-5-2南岸校区图书馆检修通知</a><span class="news_time">2018/05/01</span></li>
+							<li><a href="#">南岸校区图书馆设备升级</a><span class="news_time">2018/04/03</span></li>
+							<li><a href="#">这里显示通知公告内容，以发布时间为默认排序，查看更多通知公告请点击下方的more</a><span class="news_time">2018/04/20</span></li>
+							<li><a href="#">图书馆网站系统维修通知</a><span class="news_time">2018/04/03</span></li>
+							<li><a href="#">图书馆应聘人员公示</a><span class="news_time">2018/04/25</span></li>
+							<li><a href="#">2014级论文查重工作</a><span class="news_time">2018/04/25</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/15</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/12</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/11</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/08</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/06</span></li>
+							<li><a href="#">通知公告</a><span class="news_time">2018/04/04</span></li>
+						</ul>
+					</div>
+					<div class="more"><a href="#">>>more1...</a></div>
+					<div class="news_content">
+						<ul>
+							<li><a href="#">这里显示工作动态内容，以发布时间为默认排序，查看更多工作动态请点击下方的more</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">学校的最新工作安排动态都在这里</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">工作动态</a><span class="news_time">2018/4/3</span></li>
+						</ul>
+					</div>
+					<div class="more"><a href="#">>>more2...</a></div>
+					<div class="news_content">
+						<ul>
+							<li><a href="#">这里显示最新活动公告内容，以发布时间为默认排序，查看更多最新活动请点击下方的more</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">随时查看最新资源更新</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">资源动态</a><span class="news_time">2018/4/3</span></li>
+						</ul>
+					</div>
+					<div class="more"><a href="#">>>more3...</a></div>
+					<div class="news_content">
+						<ul>
+							<li><a href="#">这里显示资源动态公告内容，以发布时间为默认排序，查看更多资源动态请点击下方的more</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">图书馆的最新活动在这里都可以看到</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+							<li><a href="#">最新活动</a><span class="news_time">2018/4/3</span></li>
+						</ul>
+					</div>
+					<div class="more"><a href="#">>>more4...</a></div>
+				</div>
+			</div>
+	  </div>
+	  <div class="othera">
+		<div class="othera_son">
+			<a href="http://www.ctbu.edu.cn/" target="_block">重庆工商大学官网</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://jwsys.ctbu.edu.cn/" target="_block">教务管理系统</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://www.ctbu.edu.cn/index/jxzx.htm" target="_block">教学在线</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://rsc2014.ctbu.edu.cn/" target="_block">人才招聘</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://netserv.ctbu.edu.cn/selfservice/" target="_block">校园网自服务</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://gzc.ctbu.edu.cn/index/zsxx.htm" target="_block">招聘信息网</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://journal.ctbu.edu.cn/bjb/ch/index.aspx" target="_block">学术期刊社</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://mail.ctbu.edu.cn/" target="_block">电子邮箱</a>
+		</div>
+	  </div>
+	  <!--网页页脚-->
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

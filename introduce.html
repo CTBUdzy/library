@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/login_window.js"></script>
+  <script src="js/person.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/position.js"></script>
+  <script src="js/second_level_interface.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+	<div id="pageCover" class="pageCover"></div>
+	<div id="dlgTest" class="dialog">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户登录</p>
+			</div>
+			<div class="login">
+				<p><input name="" id="user" type="text" placeholder="请输入用户名"/></p>
+				<p><input name="" id="pass"  type="password" placeholder="请输入密码"/></p>
+				<p><input type="text"   id="inputCode" placeholder="验证码"/></p>
+				<div class="code_div"><div class="code" id="checkCode" onclick="createCode()" ></div></div>
+				<p><input name="submit" type="button" id="submit" value="login" /></p>
+				<p id="remember_pass"><span id="forget_pass">忘记密码?</span><span id="register_a">注册账号</span></p>
+			</div>
+		</div>
+	</div>
+
+	<!--注册界面-->
+		<div id="register">
+			<span class="close">&times;</span><br/>
+			<div class="tit">
+					<p>用户注册</p>
+			</div>
+			<div class="register">
+				<p><input name="" id="register_user" type="text" placeholder="请输入您的学号（10位）"/></p>
+				<p><input name="" id="register_pass"  type="password" placeholder="请设置密码（至少6位）"/></p>
+				<p><input name="" id="register_pass2"  type="password" placeholder="请确认密码"/></p>
+				<p><input name="submit" type="button" id="register_submit" value="注册" /></p>
+				<p id="register_return"><span id="return_login">返回登录</span><span id="return_index">返回首页</span></p>
+			</div>
+		</div>
+
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<a href="#" id="person_name"></a>
+			<a href="#" id="quit">退出</a>
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+		<div class="position">当前位置：<span  style="color:#000;cursor:pointer;" id="index_page">首页</span>&nbsp;&nbsp;>>&nbsp;&nbsp;<a href="#" style="color:#000;"id="position2">关于本管</a>&nbsp;&nbsp;>>&nbsp;&nbsp;<span id="position3">本管简述</span></div>
+	</div>
+  <div class="page">
+	  <div class="main">
+		<div style="width:97%;height:98%;border:1px solid #666;boder-radius:5px;margin:0px auto;">
+			<div class="main_left">
+				<div class="h2_title"><img src="images/fanhui.png"><h2>关于本管</h2></div>
+				<ul class="main_left_ul">
+					<li class="main_ul_li"><span>本管简述</span></li>
+					<li class="main_ul_li"><span>开放时间</span></li>
+					<li class="main_ul_li"><span>借阅制度</span></li>
+					<li class="main_ul_li"><span>入馆须知</span></li>
+					<li class="main_ul_li"><span>办证介绍</span></li>
+				</ul>
+				<hr/>
+			</div>
+			<div class="main_right">
+				<div class ="h3_title"><h3>本管简述</h3></div>
+				<div class="library_introduce con_detailed">
+					<p>重庆工商大学图书馆是由原渝州大学图书馆和原重庆商学院图书馆于2002年6月合并组建的。学校图书馆总面积为 6.07 万平方米；馆藏纸质文献 272.67 万册，中外文期刊1300种，2500余份；引进中国知网、超星数字图书馆、Springer Link 电子期刊数据库等中外文数据库 53个；电子图书总量 109.54 万册；文献资源建设经费近三年来从 800 万增加到 1,400万，增幅达到 75%；图书馆全面实现了信息化、网络化管理。</p>
+
+					<p>图书馆十分重视自动化、网络化、信息化建设，积极更新管理手段、管理方法。采用《金盘图书馆集成管理系统（GDLIS XP）》，全面实现了图书馆的计算机化、网络化管理，提升了中外文图书采编、流通服务、读者查询和办公自动化管理水平。依托校园网，全校师生通过网络终端免费访问图书馆数字资源。</p>
+
+					<p>图书馆采用全开架管理模式，读者通过监测系统出入各阅览室或书库，可自由选书阅览或外借。电子阅览室的管理融入校园一卡通系统，读者凭本人校园卡刷卡上机。新建成的兰花湖片区图书馆，实现了门禁、安防、消防、广播等智能化楼宇管理，使图书馆的自动化、网络化、信息化建设得到进一步发展。</p>
+
+					<p>图书馆实行校长领导下的馆长负责制。按照“集中统一管理、分布式协调运行”的办馆体制，下设办公室、采编部、流通部、期刊部、信息技术部等五个业务部门。现有职工58人，其中：博士、硕士研究生12人（占20.69%），大学专科、本科学历41人（占70.69%）；正高级职称4人（占6.90%），副高级职称10人（占17.24%），中级职称19人（占32.76%）。职工学历、职称结构合理。现任馆长为黄文教授。</p>
+				</div>
+				<div class="library_time con_detailed">
+					<div class="school_ch"><ul><li>南岸校区</li><li>兰花湖校区</li><li>江北校区</li></ul></div>
+					<div class="table_div">
+						<div class="sm_time nanan">
+							<table width="90%">
+								<tr><th width="15%">校区</th><th width="10%">楼栋</th><th width="10%">楼层</th><th width="45%">收藏图书/服务功能</th><th width="25%">开放时间</th></tr>
+								<tr><td rowspan="14">南岸校区</td><td rowspan="7">南楼</td><td>-1</td><td>校园数字中心</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>1</td><td>信息技术部办公室、视听预览室、翠湖博士论坛、智慧教室</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>2</td><td>期刊、外文图书预览区</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>3</td><td>自然科学预览区</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>4</td><td>社会科学预览区</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>5</td><td>研修一区&nbsp;(<span style="color:red;">&nbsp;需预约&nbsp;</span>)<span class="Seat_reservation" style="color:blue;cursor:pointer;">马上预约</span></td><td>周一至周日<br/>8：00—22：00</td></tr>
+								<tr><td>6</td><td>研修二区&nbsp;(<span style="color:red;">&nbsp;需预约&nbsp;</span>)<span class="Seat_reservation"style="color:blue;cursor:pointer;">马上预约</span></td><td>周一至周日<br/>8：00—22：00</td></tr>
+								
+								<tr><td rowspan="7">北楼</td><td>-1</td><td>自助学习区、密集书库</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>1</td><td>采编部办公室、密集书库</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>2</td><td>大厅</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>3</td><td>语言、文学、艺术浏览区</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>4</td><td>经济管理浏览一区</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>5</td><td>经济管理浏览二区、古籍书库</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>6</td><td>图书馆办公室、特藏书库、翠湖学者文库</td><td>周一至周日<br/>8：30—22：00</td></tr>				
+							</table>
+							<p><b style="color:red;">特备提醒：</b>南岸校区图书馆5、6楼的研修间和研讨间需要提前预约，具体说明请进入<a href="Seat_reservation.html" style="color:#0033ff;">预约座位</a>板块</p>
+						</div>
+						<div class="sm_time lanhuahu">
+							<table width="90%">
+								<tr><th width="15%">校区</th><th width="15%">楼层</th><th width="35%">收藏图书</th><th width="25%">开放时间</th></tr>
+								<tr><td rowspan="4">兰花湖校区</td><td>1</td><td>A、B、C、D、E、F类图书 </td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>2</td><td>G、H、I、J、K、N、O、P、Q、R、S、T、U、V、X、Z类图书</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>3</td><td>各类工具书 </td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>4</td><td>提供上机操作、上网浏览、本馆收藏的光盘数据库和网络数据库等电子文献的检索等服务 </td><td>周一至周日<br/>8：30—22：00</td></tr>
+							</table>
+						</div>
+						<div class="sm_time jiangbei">
+							<table width="90%">
+								<tr><th width="15%">校区</th><th width="15%">楼层</th><th width="35%">收藏图书</th><th width="25%">开放时间</th></tr>
+								<tr><td rowspan="4">江北校区</td><td>1</td><td>各类中文图书</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>2</td><td>当年各类期刊；历年过期期刊。提供上机操作、上网浏览、本馆收藏的光盘数据库和网络数据库等电子文献的检索等服务</td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>3</td><td>各类图书  </td><td>周一至周日<br/>8：30—22：00</td></tr>
+								<tr><td>4</td><td>各类图书  </td><td>周一至周日<br/>8：30—22：00</td></tr>
+							</table>
+						</div>	
+					</div>
+				</div>
+				<div class="library_system con_detailed">
+					<p>1、北3—5楼书库、南3—4楼书库、北负1楼及1楼密集书库可外借；古籍书库、翠湖学者文库、特藏书库、外文、期刊阅览室等区域书刊仅供阅览，概不外借。</p>
+
+					<p>2、在书架上取阅图书后，请将图书置于书架边的收书台。</p>
+
+					<p>3、图书借还手续：北负1楼、1楼密集书库图书在办理图书转库手续后方可在自助借还机上办理图书借还手续。其余可外借图书直接在自助借还机上办理图书借还手续，如遇问题请到总服务台寻求协助。办妥借阅手续后，方可离馆。未办手续，严禁带书出馆，违者按窃书处理。</p>
+
+					<p>4、图书外借量和期限：普通高校本专科学生借阅总量为20册，借期2个月；研究生借阅总量为30册，借期3个月；教职工借阅总量为30册，借期4个月。在寒暑假期间到期的图书其借期将进行相应的延期（即原借期加寒/暑假天数）。</p>
+
+					<p>5、续借：如果所借图书没有被预约，也没有超期，读者可以网上续借，或者到自助借还机上办理续借。图书最多可续借1次，续期比借期少1个月</p>
+
+					<p>6、预约：对于已经全部借出的图书，读者可进行预约，实行预约排队。预约册数 = 可借册数–已借册数。</p>
+
+					<p>7、超期：读者借书超出了约定的借书期限，需缴纳超期违约金0.1元/天。</p>
+
+					<p>8、爱护图书，不得污损、折角、撕毁、违者按有关规定处罚。</p>
+
+					<p>9、图书遗失：读者所借书刊，必须注意爱护，妥善保管。所借书刊如有遗失或严重损毁，应以与原书相同的版本，或经本馆同意的新版本赔偿，并收取工本费。若不能赔偿同等版本或本馆同意的新版本图书时，须按照规定支付赔偿金。</p>
+
+					<p>10、遗失证件，及时挂失，否则造成后果，本人自负。</p>
+				</div>
+				<div class="library_system con_detailed">
+					
+					<p>1、我校师生凭本人校园一卡通刷卡进馆。</p>
+					<p>2、进馆者应注意文明礼貌，穿戴整洁，请勿穿背心、拖鞋入馆。</p>
+
+					<p>3、馆内保持安静。请勿喧哗或高声朗读，电话铃声请调至静音或震动；穿高跟鞋或硬底鞋在馆内走动时请注意保持轻声。</p>
+					<p>4、爱护馆内环境。请勿携带食物、饮品等入馆；勿随地吐痰，乱扔废弃物，乱倒茶渣。</p>
+
+					<p>5、注意安全。请妥善保管好自己的随身物品，贵重物品请随身携带；图书馆为重点消防单位，馆内严禁吸烟和动用明火，严禁使用大功率电器用品；严禁携带易燃、易爆、有毒等危险品入馆。</p>
+					<p>6、爱护馆内文献资料、建筑设施设备，不得私拿、随意涂抹刻画和破坏，若有损坏照价赔偿。</p>
+					<p>7、未经许可，禁止在馆内张贴或散发广告及其他宣传品。</p>
+					<p>8、自觉遵守本馆的各项规章制度，维护馆内秩序，不可占座，不可随意挪动阅览桌椅。离馆时请带走自己的物品，工作人员将定期清理。出入通道若监测器鸣响，请主动配合工作人员检查，支持工作人员按章办事。</p>
+					<p>9、对违反上述规定者，任何人都有权进行制止和批评，情节严重者由图书馆会同有关部门予以处理。<p>
+				</div>
+				<div class="library_system con_detailed">
+					 <p>1.图书馆借书证采用一卡通整合系统，如遗失请到一卡通中心补办。<p>
+
+					 <p>2.一卡通有效期以持证人员在校学习及工作时间为限。<p>
+
+					<p> 3.一卡通不得转借他人，如丢失，请速挂失，以免造成不必要的后果。<p>
+
+					<p> 4.读者在离校时，须归还所有借阅书刊，方可办理相关手续。<p>
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

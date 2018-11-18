@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <link href="css/Feedback_mailbox.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/person.js"></script>
+  <script src="js/second_level_interface.js"></script>
+  <script src="js/feed_info.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+	</div>
+  <div class="page">
+	  <div class="main" style="text-align:left;">
+		<div style="width:97%;height:98%;border:1px solid #666;boder-radius:5px;margin:0px auto;">
+			<div class="main_left">
+				<div class="h2_title"><img src="images/Admini.png"><h2>管理员</h2></div>
+				<ul class="main_left_ul">
+					<li class="main_ul_li"><span>反馈信息</span></li>
+					<li class="main_ul_li"><span>数据库管理</span></li>
+					<li class="main_ul_li"><span>统计信息</span></li>
+				</ul>
+				<hr/>
+			</div>
+			<div class="main_right">
+				<div class ="h3_title"><h3>反馈信息</h3></div>
+				<div class="con_detailed" style="display:block;">
+					<div class="Admini_right_div">
+						<span>问题类型:</span>
+						<select id="type_choose">
+							<option>全部</option>
+							<option>网站故障/漏洞</option>
+							<option>信息错误</option>
+							<option>未找到图书</option>
+							<option>网站建议</option>
+							<option>图书馆建议</option>
+							<option>其他</option>
+						</select>
+						<span>日期:</span>
+						<input type="date" id="datetimestar"/>-<input type="date" id="datetimeend"/>
+						<span id="info_many"></span>
+						<button  id="all_info">刷新</button>
+					</div>
+					<div id="xianshi_info">
+					</div>
+				</div>
+				<div class="con_detailed">
+					 <div class="clear_text"><p>此界面内的操作会直接影响到数据库中的信息，某些数据一旦清除将无法恢复，非特殊情况，请谨慎操作！！！</p></div>
+					 <p><button id="clear_web_count" class="clear_btn">重置网站访问次数</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#222">*清除所有课累计的统计信息</span></p>
+					 <p><button id="clear_feed_mail" class="clear_btn">清空反馈信息</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#222">*清除所有用户提交的反馈信息</span></p>
+					 <p><button id="clear_user" class="clear_btn">注销所有用户</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#222">*将已注册的用户全部注销</span></p>
+					 <p><button id="clear_sql" class="clear_btn">清除数据库</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff5353">*清除数据库中所有的数据</span></p>
+					 <div id="warning_message">
+						<p>此操作将会清除数据库所有数据信息，您确定继续吗？</p>
+						<button id="yes">确定</button>
+						<button id="no">取消</button>
+					 </div>
+				</div>
+				<div class="con_detailed">
+					<button id="renovate_data">刷新数据</button>
+					<div class="web_date">
+						<h3>网站统计信息</h3>
+						<p><span>网站访问量:&nbsp;&nbsp;<span id="user_sessions"></span></span></p>
+						<p><span>反馈信息数:&nbsp;&nbsp;<span id="info_sessions"></span></span></p>
+						<p><span>注册用户量:&nbsp;&nbsp;<span id="user_number"></span></span></p>
+					</div>
+					<div class="library_data">
+						<h3>图书馆统计信息</h3>
+						<p><span>本月借书量:&nbsp;&nbsp;<span id=""></span>****本</span></p>
+						<p><span>本月还书量:&nbsp;&nbsp;<span id=""></span>****本</span></p>
+						<p><span>本月到管人次:&nbsp;&nbsp;<span id=""></span>****人</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>

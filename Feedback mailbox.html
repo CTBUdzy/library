@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>重庆工商图书馆</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/login_window.css" rel="stylesheet" type="text/css">
+  <link href="css/second_level_interface.css" rel="stylesheet" type="text/css">
+  <link href="css/Feedback_mailbox.css" rel="stylesheet" type="text/css">
+  <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/person.js"></script>
+  <script src="js/second_level_interface.js"></script>
+  <script src="js/feed_info.js"></script>
+<style>
+	.sc_off{
+	border:1px solid #fff;
+	background:#236251;
+}
+</style>
+ </head>
+ <body>
+  	<div class="top">
+		<div id = "title"><img src="images/Museum_emblem.png" id="Museum_emblem"><a href="#"><img src="images/h1_title.png" id="h1_title"></a></div>
+		<div class="top_right1">
+			<span id="Set_up" style="cursor:pointer;">设置</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">加入收藏</a>&nbsp;&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;&nbsp;
+			<a href="#">English</a>
+		</div>
+		<div id="Set_up_div">
+				<button name="rgb(168,211,238)"></button>
+				<button name="#ff6633"></button>
+				<button name="#ffff99"></button>
+				<button name="#cccccc"></button>
+				<button name="#66ff66"></button>
+				<button name="#9933cc"></button>
+				<button name="#ff66cc"></button>
+				<button name="rgb(177,190,196)"></button>
+				<span>自定义</span><input type="color">
+		</div>
+		<div id="datetime"></div>
+	</div>
+  <div class="page">
+	  <div class="main" style="text-align:left;">
+		<form id="Feedback">
+			<fieldset>
+				<legend>问题反馈</legend>
+				<p>
+					<span class="fore">问题类型：</span>
+					<select id="problem_type">
+						<option>网站故障/漏洞</option>
+						<option>信息错误</option>
+						<option>未找到图书</option>
+						<option>网站建议</option>
+						<option>图书馆建议</option>
+						<option>其他</option>
+					</select>
+					<span class="info_explain">*选择所返回问题的问题类型</span>
+				</p>
+				<p><span class="fore">发现时间：</span><input type="date" name="time" id="find_time"/><span class="info_explain">*发现问题的时间</span></p>
+				<p><span class="fore" id="fankuiwenti">反馈问题：</span><textarea  name="problem"id="problem_text" placeholder="您可以将您的问题详细的在这里说明，若需要上传图片或文件，可点击下方按钮上传。我们会尽快解决问题，如有给您带来的不便，敬请谅解。"></textarea></p>
+				<p><button class="pic_buttton">上传图片</button><button class="file_button">上传文件</button></p>
+				<p><span class="fore">您的称呼：</span><input type="text"  name="name"  id="user_name"/><span class="info_explain">*填写您的称呼，可填非真实姓名</span></p>
+				<p><span>您的联系电话：</span><input type="text"  name="tell" id="tell_1"/><span class="info_explain">*填写您的联系方式，以便于更好的处理您所反馈的问题</span></p>
+				<p><span>其他联系方式：</span>
+					<select  id="other_tell">
+						<option>无</option>
+						<option>邮箱</option>
+						<option>其他电话</option>
+						<option>传真</option>
+					</select>
+					<input type="text"  name="other_tell"  id="tell_2"/>
+				</p>
+				<button id="submit">提交反馈</button>
+			</fieldset>
+		</form>
+	  </div>
+	  <div class="footer">
+		<tt>版权所有：重庆工商大学</tt><br/>
+		<tt>建议使用Chrome浏览器,分辨率1920×1680</tt>
+	</div>
+  </div>
+ </body>
+</html>
